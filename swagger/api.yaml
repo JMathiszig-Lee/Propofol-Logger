@@ -1,0 +1,21 @@
+swagger: "2.0"
+
+info:
+  title: "Propofol API"
+  version: "1.0"
+
+basePath: /v1.0
+
+paths:
+  /runs/:
+    post:
+      operationID: api.runs.addrun
+
+
+definitions:
+  Run:
+    type: Object
+    properties:
+      date: {type: string}
+      fitness: float
+      model: {type: string}
