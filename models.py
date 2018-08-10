@@ -10,3 +10,5 @@ class Run(BaseModel):
     date = DateTimeField()
     modelName = TextField()
     fitness = DecimalField()
+
+db.create_tables([Run])

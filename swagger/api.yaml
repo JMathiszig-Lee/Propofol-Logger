@@ -8,14 +8,41 @@ basePath: /v1.0
 
 paths:
   /runs/:
+    get:
+      responses:
+        '200':
+          description: 'get runs so far'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Run'
     post:
-      operationID: api.runs.addrun
+      parameters:
+        - in: body
+          name: Run
+          required: true
+          schema:
+              $ref: '#/definitions/Run'
+      responses:
+        '201':
+          description: 'successful'
+          schema:
+              $ref: '#/definitions/Run'
 
 
 definitions:
   Run:
-    type: Object
+    type: object
+    required:
+      - date
+      - fitness
+      - model
     properties:
-      date: {type: string}
-      fitness: float
-      model: {type: string}
+      date:
+        type: string
+        format: date-time
+      fitness:
+        type: number
+        format: float
+      model:
+        type: string
